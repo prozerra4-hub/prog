@@ -1,0 +1,46 @@
+{
+    "version": "2.0.0",
+    "options": {
+        "env": {
+            "GODOT": "C:\\Users\\jin\\Desktop\\dev\\Godot_v4.7.2-stable_win64.exe\\Godot_v4.7.2-stable_win64_console.exe"
+        }
+    },
+    "tasks": [
+        {
+            "label": "Run Game",
+            "type": "process",
+            "command": "${env:GODOT}",
+            "args": ["--path", "${workspaceFolder}"],
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Tests",
+            "type": "process",
+            "command": "${env:GODOT}",
+            "args": ["--headless", "--path", "${workspaceFolder}", "-s", "tests/run_tests.gd"],
+            "group": { "kind": "test", "isDefault": true },
+            "problemMatcher": []
+        },
+        {
+            "label": "Import Project",
+            "type": "process",
+            "command": "${env:GODOT}",
+            "args": ["--headless", "--path", "${workspaceFolder}", "--import"],
+            "problemMatcher": []
+        },
+        {
+            "label": "Visual Capture",
+            "type": "process",
+            "command": "${env:GODOT}",
+            "args": ["--path", "${workspaceFolder}", "--resolution", "1280x720", "-s", "tests/scenes/visual_capture.gd", "--", "--out=${workspaceFolder}/.captures"],
+            "problemMatcher": []
+        },
+        {
+            "label": "Balance Probe",
+            "type": "process",
+            "command": "${env:GODOT}",
+            "args": ["--headless", "--path", "${workspaceFolder}", "-s", "tests/balance_probe.gd", "--", "--matches=6"],
+            "problemMatcher": []
+        }
+    ]
+}

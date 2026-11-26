@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AIPersonality" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/AIPersonality.gd" id="1_ai"]
+
+[resource]
+script = ExtResource("1_ai")
+archetype = 1
+display_name = "Balanced"
+think_interval = 0.18
+food_bias = 1.0
+aggression = 0.3
+caution_margin = 0.05
+sight_r = 26.0
+prey_ratio = 0.7
+chase_timeout = 4.0
+speed_multiplier = 0.95
+xp_multiplier = 0.55

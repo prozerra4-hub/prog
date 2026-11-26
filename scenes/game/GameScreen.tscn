@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/GameScreenController.gd" id="1_screen"]
+[ext_resource type="PackedScene" path="res://scenes/game/GameWorld.tscn" id="2_world"]
+[ext_resource type="PackedScene" path="res://scenes/ui/GameHUD.tscn" id="3_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PauseMenu.tscn" id="4_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/ResultScreen.tscn" id="5_result"]
+
+[node name="GameScreen" type="Node"]
+process_mode = 3
+script = ExtResource("1_screen")
+
+[node name="GameWorld" parent="." instance=ExtResource("2_world")]
+process_mode = 1
+
+[node name="HUDLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="GameHUD" parent="HUDLayer" instance=ExtResource("3_hud")]
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="PauseMenu" parent="PauseLayer" instance=ExtResource("4_pause")]
+
+[node name="ResultLayer" type="CanvasLayer" parent="."]
+layer = 6
+
+[node name="ResultScreen" parent="ResultLayer" instance=ExtResource("5_result")]

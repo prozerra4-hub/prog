@@ -1,0 +1,15 @@
+{
+    "godotTools.editorPath.godot4": "C:\\Users\\jin\\Desktop\\dev\\Godot_v4.7.2-stable_win64.exe\\Godot_v4.7.2-stable_win64.exe",
+    "files.exclude": {
+        "**/.godot": true,
+        "**/*.uid": true
+    },
+    "files.associations": {
+        "*.gdshader": "glsl"
+    },
+    "[gdscript]": {
+        "editor.insertSpaces": false,
+        "editor.tabSize": 4
+    },
+    "editor.rulers": [100]
+}

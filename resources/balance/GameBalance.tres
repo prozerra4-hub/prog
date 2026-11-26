@@ -1,0 +1,172 @@
+[gd_resource type="Resource" script_class="GameBalance" load_steps=44 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/GameBalance.gd" id="1_balance"]
+[ext_resource type="Script" path="res://scripts/config/LevelCurve.gd" id="2_curve"]
+[ext_resource type="Script" path="res://scripts/config/SnakeTuning.gd" id="3_tuning"]
+[ext_resource type="Script" path="res://scripts/config/CombatRules.gd" id="4_combat"]
+[ext_resource type="Script" path="res://scripts/config/FoodKind.gd" id="5_kind"]
+[ext_resource type="Script" path="res://scripts/config/FoodTable.gd" id="6_table"]
+[ext_resource type="Script" path="res://scripts/config/ArenaConfig.gd" id="7_arena"]
+[ext_resource type="Script" path="res://scripts/config/CameraConfig.gd" id="8_camera"]
+[ext_resource type="Script" path="res://scripts/config/ScoreWeights.gd" id="9_score"]
+[ext_resource type="Script" path="res://scripts/config/SnakeSkin.gd" id="10_skin_script"]
+[ext_resource type="Script" path="res://scripts/config/AIPersonality.gd" id="11_ai_script"]
+[ext_resource type="Resource" path="res://resources/bosses/crimson_tyrant.tres" id="12_boss"]
+[ext_resource type="Resource" path="res://resources/skins/azure.tres" id="13_azure"]
+[ext_resource type="Resource" path="res://resources/skins/teal.tres" id="14_teal"]
+[ext_resource type="Resource" path="res://resources/skins/emerald.tres" id="15_emerald"]
+[ext_resource type="Resource" path="res://resources/skins/gold.tres" id="16_gold"]
+[ext_resource type="Resource" path="res://resources/skins/violet.tres" id="17_violet"]
+[ext_resource type="Resource" path="res://resources/skins/rose.tres" id="18_rose"]
+[ext_resource type="Resource" path="res://resources/skins/amber.tres" id="19_amber"]
+[ext_resource type="Resource" path="res://resources/skins/crimson.tres" id="20_crimson"]
+[ext_resource type="Resource" path="res://resources/ai/collector.tres" id="21_collector"]
+[ext_resource type="Resource" path="res://resources/ai/balanced.tres" id="22_balanced"]
+[ext_resource type="Resource" path="res://resources/ai/hunter.tres" id="23_hunter"]
+[ext_resource type="Script" path="res://scripts/config/ShowdownConfig.gd" id="24_showdown"]
+[ext_resource type="Script" path="res://scripts/config/ZoneConfig.gd" id="25_zone"]
+[ext_resource type="Script" path="res://scripts/config/ZonePhase.gd" id="26_phase"]
+
+[sub_resource type="Resource" id="Resource_curve"]
+script = ExtResource("2_curve")
+base_xp = 2.0
+growth_factor = 0.6
+growth_exponent = 0.25
+max_level = 99999
+
+[sub_resource type="Resource" id="Resource_tuning"]
+script = ExtResource("3_tuning")
+
+[sub_resource type="Resource" id="Resource_combat"]
+script = ExtResource("4_combat")
+
+[sub_resource type="Resource" id="Resource_food_normal"]
+script = ExtResource("5_kind")
+id = &"normal"
+texture_keys = Array[StringName]([&"food.red", &"food.purple", &"food.cyan", &"food.green"])
+xp = 1
+radius = 7.5
+sprite_radius_px = 31.5
+spawn_weight = 0.64
+
+[sub_resource type="Resource" id="Resource_food_medium"]
+script = ExtResource("5_kind")
+id = &"medium"
+texture_keys = Array[StringName]([&"food.medium_gold"])
+xp = 3
+radius = 10.0
+sprite_radius_px = 31.5
+spawn_weight = 0.21
+
+[sub_resource type="Resource" id="Resource_food_large"]
+script = ExtResource("5_kind")
+id = &"large"
+texture_keys = Array[StringName]([&"food.large_gold"])
+xp = 8
+radius = 13.0
+sprite_radius_px = 39.5
+spawn_weight = 0.1
+
+[sub_resource type="Resource" id="Resource_food_rare"]
+script = ExtResource("5_kind")
+id = &"rare"
+texture_keys = Array[StringName]([&"food.rare_orange"])
+xp = 25
+radius = 13.0
+sprite_radius_px = 36.5
+spawn_weight = 0.035
+has_aura = true
+
+[sub_resource type="Resource" id="Resource_food_gem"]
+script = ExtResource("5_kind")
+id = &"gem"
+texture_keys = Array[StringName]([&"food.gem_blue", &"food.gem_purple", &"food.gem_green"])
+xp = 60
+radius = 15.0
+sprite_radius_px = 45.0
+spawn_weight = 0.015
+has_aura = true
+
+[sub_resource type="Resource" id="Resource_food_remains"]
+script = ExtResource("5_kind")
+id = &"remains"
+texture_keys = Array[StringName]([&"food.cyan"])
+xp = 1
+radius = 10.5
+sprite_radius_px = 31.5
+spawn_weight = 0.0
+
+[sub_resource type="Resource" id="Resource_food_table"]
+script = ExtResource("6_table")
+kinds = Array[ExtResource("5_kind")]([SubResource("Resource_food_normal"), SubResource("Resource_food_medium"), SubResource("Resource_food_large"), SubResource("Resource_food_rare"), SubResource("Resource_food_gem")])
+remains_kind = SubResource("Resource_food_remains")
+target_count = 1500
+
+[sub_resource type="Resource" id="Resource_arena"]
+script = ExtResource("7_arena")
+radius = 4800.0
+floor_texture_key = &"arena.floor"
+floor_texture_scale = 2.0
+
+[sub_resource type="Resource" id="Resource_camera"]
+script = ExtResource("8_camera")
+
+[sub_resource type="Resource" id="Resource_zone_p1"]
+script = ExtResource("26_phase")
+wait_sec = 15.0
+shrink_sec = 12.0
+radius_ratio = 0.72
+center_shift = 0.6
+
+[sub_resource type="Resource" id="Resource_zone_p2"]
+script = ExtResource("26_phase")
+wait_sec = 12.0
+shrink_sec = 12.0
+radius_ratio = 0.52
+center_shift = 0.6
+
+[sub_resource type="Resource" id="Resource_zone_p3"]
+script = ExtResource("26_phase")
+wait_sec = 12.0
+shrink_sec = 12.0
+radius_ratio = 0.38
+center_shift = 0.6
+
+[sub_resource type="Resource" id="Resource_zone_final"]
+script = ExtResource("26_phase")
+wait_sec = 0.0
+shrink_sec = 25.0
+radius_ratio = 0.3
+center_shift = 0.4
+
+[sub_resource type="Resource" id="Resource_zone"]
+script = ExtResource("25_zone")
+phases = Array[ExtResource("26_phase")]([SubResource("Resource_zone_p1"), SubResource("Resource_zone_p2"), SubResource("Resource_zone_p3")])
+final_phase = SubResource("Resource_zone_final")
+
+[sub_resource type="Resource" id="Resource_showdown"]
+script = ExtResource("24_showdown")
+
+[sub_resource type="Resource" id="Resource_score"]
+script = ExtResource("9_score")
+
+[resource]
+script = ExtResource("1_balance")
+match_duration_sec = 90.0
+ai_count = 10
+revive_count = 3
+leaderboard_size = 5
+ai_names = PackedStringArray("Viper", "Mamba", "Krait", "Taipan", "Adder", "Sidewinder", "Boa", "Racer", "Copperhead", "Asp", "Kingsnake", "Whip")
+level_curve = SubResource("Resource_curve")
+snake = SubResource("Resource_tuning")
+combat = SubResource("Resource_combat")
+food = SubResource("Resource_food_table")
+arena = SubResource("Resource_arena")
+camera = SubResource("Resource_camera")
+score = SubResource("Resource_score")
+boss = ExtResource("12_boss")
+showdown = SubResource("Resource_showdown")
+zone = SubResource("Resource_zone")
+player_skins = Array[ExtResource("10_skin_script")]([ExtResource("13_azure"), ExtResource("14_teal"), ExtResource("15_emerald"), ExtResource("16_gold"), ExtResource("17_violet"), ExtResource("18_rose")])
+ai_skins = Array[ExtResource("10_skin_script")]([ExtResource("15_emerald"), ExtResource("19_amber"), ExtResource("17_violet"), ExtResource("20_crimson"), ExtResource("18_rose"), ExtResource("14_teal")])
+ai_personalities = Array[ExtResource("11_ai_script")]([ExtResource("22_balanced"), ExtResource("21_collector"), ExtResource("23_hunter"), ExtResource("22_balanced"), ExtResource("23_hunter"), ExtResource("21_collector"), ExtResource("22_balanced"), ExtResource("23_hunter"), ExtResource("21_collector"), ExtResource("22_balanced")])

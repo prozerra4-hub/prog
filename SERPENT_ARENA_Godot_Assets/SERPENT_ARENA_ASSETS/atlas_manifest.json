@@ -1,0 +1,642 @@
+{
+  "project": "SERPENT ARENA",
+  "format": "PNG RGBA",
+  "atlases": {
+    "snake_parts_256.png": {
+      "cell_size": [
+        256,
+        256
+      ],
+      "columns": 4,
+      "rows": 4,
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "frames": {
+        "player_head_blue": {
+          "x": 0,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "file": "snakes/player_head_blue.png"
+        },
+        "body_segment_blue": {
+          "x": 256,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "file": "snakes/body_segment_blue.png"
+        },
+        "tail_tip_blue": {
+          "x": 512,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "file": "snakes/tail_tip_blue.png"
+        },
+        "enemy_head_green": {
+          "x": 768,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "file": "snakes/enemy_head_green.png"
+        },
+        "enemy_head_orange": {
+          "x": 0,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "file": "snakes/enemy_head_orange.png"
+        },
+        "enemy_head_purple": {
+          "x": 256,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "file": "snakes/enemy_head_purple.png"
+        },
+        "enemy_head_red": {
+          "x": 512,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "file": "snakes/enemy_head_red.png"
+        },
+        "body_segment_green": {
+          "x": 768,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "file": "snakes/body_segment_green.png"
+        },
+        "boss_head_red": {
+          "x": 0,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "file": "snakes/boss_head_red.png"
+        },
+        "boss_segment_red_gold": {
+          "x": 256,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "file": "snakes/boss_segment_red_gold.png"
+        },
+        "boss_tail_red_gold": {
+          "x": 512,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "file": "snakes/boss_tail_red_gold.png"
+        },
+        "boss_horn": {
+          "x": 768,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "file": "snakes/boss_horn.png"
+        },
+        "body_segment_gold": {
+          "x": 0,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "file": "snakes/body_segment_gold.png"
+        },
+        "body_segment_cyan": {
+          "x": 256,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "file": "snakes/body_segment_cyan.png"
+        },
+        "body_segment_purple": {
+          "x": 512,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "file": "snakes/body_segment_purple.png"
+        },
+        "body_segment_pink": {
+          "x": 768,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "file": "snakes/body_segment_pink.png"
+        }
+      }
+    },
+    "food_orbs_128.png": {
+      "cell_size": [
+        128,
+        128
+      ],
+      "columns": 4,
+      "rows": 4,
+      "texture_size": [
+        512,
+        512
+      ],
+      "frames": {
+        "food_small_gold": {
+          "x": 0,
+          "y": 0,
+          "w": 128,
+          "h": 128,
+          "file": "food/food_small_gold.png"
+        },
+        "food_medium_gold": {
+          "x": 128,
+          "y": 0,
+          "w": 128,
+          "h": 128,
+          "file": "food/food_medium_gold.png"
+        },
+        "food_large_gold": {
+          "x": 256,
+          "y": 0,
+          "w": 128,
+          "h": 128,
+          "file": "food/food_large_gold.png"
+        },
+        "food_red": {
+          "x": 384,
+          "y": 0,
+          "w": 128,
+          "h": 128,
+          "file": "food/food_red.png"
+        },
+        "food_purple": {
+          "x": 0,
+          "y": 128,
+          "w": 128,
+          "h": 128,
+          "file": "food/food_purple.png"
+        },
+        "food_cyan": {
+          "x": 128,
+          "y": 128,
+          "w": 128,
+          "h": 128,
+          "file": "food/food_cyan.png"
+        },
+        "food_green": {
+          "x": 256,
+          "y": 128,
+          "w": 128,
+          "h": 128,
+          "file": "food/food_green.png"
+        },
+        "food_rainbow": {
+          "x": 384,
+          "y": 128,
+          "w": 128,
+          "h": 128,
+          "file": "food/food_rainbow.png"
+        },
+        "gem_blue": {
+          "x": 0,
+          "y": 256,
+          "w": 128,
+          "h": 128,
+          "file": "food/gem_blue.png"
+        },
+        "gem_purple": {
+          "x": 128,
+          "y": 256,
+          "w": 128,
+          "h": 128,
+          "file": "food/gem_purple.png"
+        },
+        "gem_green": {
+          "x": 256,
+          "y": 256,
+          "w": 128,
+          "h": 128,
+          "file": "food/gem_green.png"
+        },
+        "star_gold": {
+          "x": 384,
+          "y": 256,
+          "w": 128,
+          "h": 128,
+          "file": "food/star_gold.png"
+        },
+        "food_glow_gold": {
+          "x": 0,
+          "y": 384,
+          "w": 128,
+          "h": 128,
+          "file": "food/food_glow_gold.png"
+        },
+        "food_glow_cyan": {
+          "x": 128,
+          "y": 384,
+          "w": 128,
+          "h": 128,
+          "file": "food/food_glow_cyan.png"
+        },
+        "food_glow_magenta": {
+          "x": 256,
+          "y": 384,
+          "w": 128,
+          "h": 128,
+          "file": "food/food_glow_magenta.png"
+        },
+        "food_rare_orange": {
+          "x": 384,
+          "y": 384,
+          "w": 128,
+          "h": 128,
+          "file": "food/food_rare_orange.png"
+        }
+      }
+    },
+    "vfx_256.png": {
+      "cell_size": [
+        256,
+        256
+      ],
+      "columns": 4,
+      "rows": 4,
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "frames": {
+        "levelup_ring_blue": {
+          "x": 0,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "file": "vfx/levelup_ring_blue.png"
+        },
+        "levelup_ring_gold": {
+          "x": 256,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "file": "vfx/levelup_ring_gold.png"
+        },
+        "impact_burst_gold": {
+          "x": 512,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "file": "vfx/impact_burst_gold.png"
+        },
+        "impact_burst_blue": {
+          "x": 768,
+          "y": 0,
+          "w": 256,
+          "h": 256,
+          "file": "vfx/impact_burst_blue.png"
+        },
+        "sparkle_white": {
+          "x": 0,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "file": "vfx/sparkle_white.png"
+        },
+        "sparkle_cyan": {
+          "x": 256,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "file": "vfx/sparkle_cyan.png"
+        },
+        "sparkle_magenta": {
+          "x": 512,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "file": "vfx/sparkle_magenta.png"
+        },
+        "death_smoke": {
+          "x": 768,
+          "y": 256,
+          "w": 256,
+          "h": 256,
+          "file": "vfx/death_smoke.png"
+        },
+        "respawn_portal": {
+          "x": 0,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "file": "vfx/respawn_portal.png"
+        },
+        "boss_aura_red": {
+          "x": 256,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "file": "vfx/boss_aura_red.png"
+        },
+        "boss_burst_red": {
+          "x": 512,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "file": "vfx/boss_burst_red.png"
+        },
+        "rare_food_aura": {
+          "x": 768,
+          "y": 512,
+          "w": 256,
+          "h": 256,
+          "file": "vfx/rare_food_aura.png"
+        },
+        "heal_glow_green": {
+          "x": 0,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "file": "vfx/heal_glow_green.png"
+        },
+        "speed_streak_cyan": {
+          "x": 256,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "file": "vfx/speed_streak_cyan.png"
+        },
+        "speed_streak_gold": {
+          "x": 512,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "file": "vfx/speed_streak_gold.png"
+        },
+        "death_skull_glow": {
+          "x": 768,
+          "y": 768,
+          "w": 256,
+          "h": 256,
+          "file": "vfx/death_skull_glow.png"
+        }
+      }
+    },
+    "arena_tiles_128.png": {
+      "cell_size": [
+        128,
+        128
+      ],
+      "columns": 4,
+      "rows": 4,
+      "texture_size": [
+        512,
+        512
+      ],
+      "frames": {
+        "arena_01_dots": {
+          "x": 0,
+          "y": 0,
+          "w": 128,
+          "h": 128,
+          "file": "arena_tiles/arena_01_dots.png"
+        },
+        "arena_02_hex": {
+          "x": 128,
+          "y": 0,
+          "w": 128,
+          "h": 128,
+          "file": "arena_tiles/arena_02_hex.png"
+        },
+        "arena_03_grid": {
+          "x": 256,
+          "y": 0,
+          "w": 128,
+          "h": 128,
+          "file": "arena_tiles/arena_03_grid.png"
+        },
+        "arena_04_speckle": {
+          "x": 384,
+          "y": 0,
+          "w": 128,
+          "h": 128,
+          "file": "arena_tiles/arena_04_speckle.png"
+        },
+        "arena_05_center_glow": {
+          "x": 0,
+          "y": 128,
+          "w": 128,
+          "h": 128,
+          "file": "arena_tiles/arena_05_center_glow.png"
+        },
+        "arena_06_border": {
+          "x": 128,
+          "y": 128,
+          "w": 128,
+          "h": 128,
+          "file": "arena_tiles/arena_06_border.png"
+        },
+        "arena_07_warning": {
+          "x": 256,
+          "y": 128,
+          "w": 128,
+          "h": 128,
+          "file": "arena_tiles/arena_07_warning.png"
+        },
+        "arena_08_blue_glow": {
+          "x": 384,
+          "y": 128,
+          "w": 128,
+          "h": 128,
+          "file": "arena_tiles/arena_08_blue_glow.png"
+        },
+        "arena_09_arena_edge": {
+          "x": 0,
+          "y": 256,
+          "w": 128,
+          "h": 128,
+          "file": "arena_tiles/arena_09_arena_edge.png"
+        },
+        "arena_10_arena_corner": {
+          "x": 128,
+          "y": 256,
+          "w": 128,
+          "h": 128,
+          "file": "arena_tiles/arena_10_arena_corner.png"
+        },
+        "arena_11_shadow": {
+          "x": 256,
+          "y": 256,
+          "w": 128,
+          "h": 128,
+          "file": "arena_tiles/arena_11_shadow.png"
+        },
+        "arena_12_plain": {
+          "x": 384,
+          "y": 256,
+          "w": 128,
+          "h": 128,
+          "file": "arena_tiles/arena_12_plain.png"
+        },
+        "arena_13_dots": {
+          "x": 0,
+          "y": 384,
+          "w": 128,
+          "h": 128,
+          "file": "arena_tiles/arena_13_dots.png"
+        },
+        "arena_14_hex": {
+          "x": 128,
+          "y": 384,
+          "w": 128,
+          "h": 128,
+          "file": "arena_tiles/arena_14_hex.png"
+        },
+        "arena_15_grid": {
+          "x": 256,
+          "y": 384,
+          "w": 128,
+          "h": 128,
+          "file": "arena_tiles/arena_15_grid.png"
+        },
+        "arena_16_speckle": {
+          "x": 384,
+          "y": 384,
+          "w": 128,
+          "h": 128,
+          "file": "arena_tiles/arena_16_speckle.png"
+        }
+      }
+    },
+    "ui_icons_128.png": {
+      "cell_size": [
+        128,
+        128
+      ],
+      "columns": 4,
+      "rows": 4,
+      "texture_size": [
+        512,
+        512
+      ],
+      "frames": {
+        "crown": {
+          "x": 0,
+          "y": 0,
+          "w": 128,
+          "h": 128,
+          "file": "ui_icons/crown.png"
+        },
+        "skull": {
+          "x": 128,
+          "y": 0,
+          "w": 128,
+          "h": 128,
+          "file": "ui_icons/skull.png"
+        },
+        "trophy": {
+          "x": 256,
+          "y": 0,
+          "w": 128,
+          "h": 128,
+          "file": "ui_icons/trophy.png"
+        },
+        "shield": {
+          "x": 384,
+          "y": 0,
+          "w": 128,
+          "h": 128,
+          "file": "ui_icons/shield.png"
+        },
+        "heart": {
+          "x": 0,
+          "y": 128,
+          "w": 128,
+          "h": 128,
+          "file": "ui_icons/heart.png"
+        },
+        "lightning": {
+          "x": 128,
+          "y": 128,
+          "w": 128,
+          "h": 128,
+          "file": "ui_icons/lightning.png"
+        },
+        "gear": {
+          "x": 256,
+          "y": 128,
+          "w": 128,
+          "h": 128,
+          "file": "ui_icons/gear.png"
+        },
+        "play": {
+          "x": 384,
+          "y": 128,
+          "w": 128,
+          "h": 128,
+          "file": "ui_icons/play.png"
+        },
+        "pause": {
+          "x": 0,
+          "y": 256,
+          "w": 128,
+          "h": 128,
+          "file": "ui_icons/pause.png"
+        },
+        "home": {
+          "x": 128,
+          "y": 256,
+          "w": 128,
+          "h": 128,
+          "file": "ui_icons/home.png"
+        },
+        "star": {
+          "x": 256,
+          "y": 256,
+          "w": 128,
+          "h": 128,
+          "file": "ui_icons/star.png"
+        },
+        "gem": {
+          "x": 384,
+          "y": 256,
+          "w": 128,
+          "h": 128,
+          "file": "ui_icons/gem.png"
+        },
+        "clock": {
+          "x": 0,
+          "y": 384,
+          "w": 128,
+          "h": 128,
+          "file": "ui_icons/clock.png"
+        },
+        "magnet": {
+          "x": 128,
+          "y": 384,
+          "w": 128,
+          "h": 128,
+          "file": "ui_icons/magnet.png"
+        },
+        "boss": {
+          "x": 256,
+          "y": 384,
+          "w": 128,
+          "h": 128,
+          "file": "ui_icons/boss.png"
+        },
+        "coin": {
+          "x": 384,
+          "y": 384,
+          "w": 128,
+          "h": 128,
+          "file": "ui_icons/coin.png"
+        }
+      }
+    }
+  },
+  "notes": [
+    "Snake parts and UI sprites use transparent backgrounds.",
+    "Arena tiles are 128x128 seamless/loopable dark floor variants.",
+    "Use body_segment_blue repeatedly along the recorded snake path; rotate tail/head according to direction.",
+    "Skin colors can be applied using Godot CanvasItem modulate or a shader."
+  ]
+}

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/actors/snake/SnakeActor.gd" id="1_actor"]
+[ext_resource type="Script" path="res://scripts/actors/snake/SnakeBodyRenderer.gd" id="2_body"]
+[ext_resource type="Script" path="res://scripts/actors/snake/SnakeCrestRenderer.gd" id="3_crest"]
+[ext_resource type="Script" path="res://scripts/actors/snake/SnakeFaceRenderer.gd" id="4_face"]
+
+[node name="SnakeActor" type="Node2D"]
+script = ExtResource("1_actor")
+
+[node name="BodyRenderer" type="Node2D" parent="."]
+script = ExtResource("2_body")
+
+[node name="Crest" type="Node2D" parent="BodyRenderer"]
+script = ExtResource("3_crest")
+
+[node name="Face" type="Node2D" parent="BodyRenderer"]
+script = ExtResource("4_face")

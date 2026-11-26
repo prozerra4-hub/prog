@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AIPersonality" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/AIPersonality.gd" id="1_ai"]
+
+[resource]
+script = ExtResource("1_ai")
+archetype = 0
+display_name = "Collector"
+think_interval = 0.2
+food_bias = 1.6
+aggression = 0.15
+caution_margin = 0.12
+sight_r = 22.0
+prey_ratio = 0.6
+chase_timeout = 2.5
+speed_multiplier = 0.92
+xp_multiplier = 0.6

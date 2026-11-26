@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SnakeSkin" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/SnakeSkin.gd" id="1_skin"]
+
+[resource]
+script = ExtResource("1_skin")
+id = &"rose"
+display_name = "Rose"
+hue = 0.93
+saturation = 0.72
+value = 1.0
+band_hue = 0.12
+band_saturation = 1.0
+band_value = 1.0
+band_every = 0
+ui_color = Color(1.0, 0.45, 0.72, 1)
+remains_texture_key = &"food.purple"
+unlock_best_level = 1500

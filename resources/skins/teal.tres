@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SnakeSkin" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/SnakeSkin.gd" id="1_skin"]
+
+[resource]
+script = ExtResource("1_skin")
+id = &"teal"
+display_name = "Teal"
+hue = 0.48
+saturation = 0.95
+value = 0.92
+band_hue = 0.12
+band_saturation = 1.0
+band_value = 1.0
+band_every = 0
+ui_color = Color(0.22, 0.83, 0.79, 1)
+remains_texture_key = &"food.cyan"
+unlock_best_level = 60

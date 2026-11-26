@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="BossDefinition" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/BossDefinition.gd" id="1_boss"]
+[ext_resource type="Resource" path="res://resources/skins/boss_crimson.tres" id="2_skin"]
+
+[resource]
+script = ExtResource("1_boss")
+id = &"crimson_tyrant"
+display_name = "Crimson Tyrant"
+level = 1000
+skin = ExtResource("2_skin")
+speed_multiplier = 0.62
+turn_multiplier = 0.85
+length_multiplier = 0.45
+weak_spot_from_share = 0.5
+aggro_radius = 700.0
+min_target_level_ratio = 0.4
+patrol_radius_ratio = 0.45
+charge_windup_sec = 0.7
+charge_duration_sec = 1.1
+charge_speed_multiplier = 1.75
+charge_cooldown_sec = 6.0
+charge_trigger_distance = 500.0
+reward_xp_ratio = 0.5
