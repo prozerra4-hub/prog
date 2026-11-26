@@ -11,7 +11,7 @@
 | `--headless --path . --quit-after 300` | 메인 메뉴 + 어트랙트 경기 300프레임, 오류 0, 종료 코드 0 |
 
 ## 2. 자동 테스트 (`tests/run_tests.gd`)
-**45개 테스트 / 299개 검사 전부 통과.** (4차: 자기장·판정 명확화·크기=힘 개편 후)
+**47개 테스트 / 305개 검사 전부 통과.** (5차: 벽 규칙·보스 무시 표시 정리 후)
 
 | 구분 | 테스트 | 검증 내용 |
 |---|---|---|
@@ -48,6 +48,8 @@
 | | mouth_only_strikes_in_front | 머리 뒤쪽 접촉은 공격이 아님 |
 | | head_bite_scales_with_gap | 머리 물기 = HEAD_BITE, 1.2배 차이 → 적당한 손실 |
 | | neck_strike_swallows | 목(앞 15%) 타격 = 삼킴, 보상, 킬 수 |
+| | strike_cooldown_makes_lower_body_a_wall | 재공격 대기 중 낮은 레벨 몸통에 닿으면 통과하지 않고 미끄러짐 |
+| | calm_boss_notice_level | 정규 시간 보스: Lv399 무시, Lv400부터 공격, 분노 시 전부 공격 |
 | | equal_levels_bounce | 같은 레벨 정면 충돌: 피해 없음, 양쪽 보호 |
 | | player_revives_then_eliminated | 부활 3회 소모 후 4번째 사망 → ELIMINATED 1회 |
 | | boss_kill_is_victory | 보스 목 타격 → 삼킴 → VICTORY |

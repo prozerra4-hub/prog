@@ -120,6 +120,40 @@ func test_mouth_only_strikes_in_front(tree: SceneTree) -> void:
 	_free(s)
 
 
+func test_strike_cooldown_makes_lower_body_a_wall(tree: SceneTree) -> void:
+	var s: GameSession = await _new_session(tree)
+	var p: SnakeActor = s.player
+	var ai: SnakeActor = _first_ai(s)
+	ai.spawn(Vector2(-400, 0), 0.0, 50, 0.0)
+	var mid: int = ai.body.count / 2
+	var bead: Vector2 = ai.body.positions[mid]
+	p.spawn(bead + Vector2(0, -5), PI / 2.0, 60, 0.0)  # mouth into a lower body...
+	p.start_strike_cooldown(1.0)                       # ...right after another strike
+	_isolate(s, [p, ai])
+	s.world.index.rebuild(s.world.snakes)
+	var r: CombatResult = s.combat.resolve(s.world)
+	check_eq(r.strikes.size() + r.kills.size(), 0, "no strike while on cooldown")
+	var reach: float = p.head_radius() * s.balance.combat.head_target_scale + ai.body.radii[mid] * s.balance.combat.body_hit_scale
+	check(p.head_position().distance_to(bead) >= reach - 0.5, "the lower body is a wall, not passed through")
+	_free(s)
+
+
+func test_calm_boss_notice_level(tree: SceneTree) -> void:
+	var s: GameSession = await _new_session(tree)
+	var brain := s.boss.brain as BossController
+	var p: SnakeActor = s.player
+	var notice: int = brain.notice_level()
+	check_eq(notice, ceili(float(s.balance.boss.level) * s.balance.boss.min_target_level_ratio), "notice level from the boss definition")
+	p.spawn(Vector2(-2500, 0), 0.0, notice - 1, 0.0)
+	check(not brain.will_strike(p), "calm boss ignores a snake just below its notice level")
+	p.spawn(Vector2(-2500, 0), 0.0, notice, 0.0)
+	check(brain.will_strike(p), "calm boss strikes at its notice level")
+	brain.set_enraged(true, 1.0)
+	p.spawn(Vector2(-2500, 0), 0.0, 1, 0.0)
+	check(brain.will_strike(p), "enraged boss strikes anything")
+	_free(s)
+
+
 func test_head_bite_scales_with_gap(tree: SceneTree) -> void:
 	var s: GameSession = await _new_session(tree)
 	var p: SnakeActor = s.player

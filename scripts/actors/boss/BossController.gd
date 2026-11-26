@@ -152,9 +152,14 @@ func _choose_target(actor: SnakeActor, world: WorldContext) -> void:
 
 
 ## Whether the boss's mouth hurts `victim` on contact. Outside the showdown it
-## ignores small fry (they just slide off); enraged, it bites anything.
+## ignores small fry (its head passes through them); enraged, it bites anything.
 func will_strike(victim: SnakeActor) -> bool:
-	return enraged or float(victim.stats.level) >= float(_def.level) * _def.min_target_level_ratio
+	return enraged or victim.stats.level >= notice_level()
+
+
+## Lowest level the calm (pre-showdown) boss bothers to strike.
+func notice_level() -> int:
+	return ceili(float(_def.level) * _def.min_target_level_ratio)
 
 
 func _target_outranks(actor: SnakeActor) -> bool:

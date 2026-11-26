@@ -58,6 +58,8 @@ func _process(_delta: float) -> void:
 		return
 	_growth.refresh(_session.player.stats)
 	_boss_card.refresh(_session.boss, _session.player, _session.balance.combat.even_match_ratio, _session.is_showdown())
+	if _boss_card.just_noticed():
+		_toast.show_message("THE TYRANT NOTICES YOU", UiTheme.DANGER, 2.0, "From now on its jaws can cut you.")
 	_zone_panel.refresh(_session.zone, _session.player, _session.balance.zone.erosion_per_sec)
 	if _zone_panel.just_left_zone(_session.zone, _session.player):
 		_toast.show_message("RETURN TO THE ZONE", UiTheme.DANGER, 1.4)

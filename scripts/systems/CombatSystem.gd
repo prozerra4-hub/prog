@@ -7,11 +7,14 @@ extends RefCounted
 ##   head -> BITE sized by the level gap
 ##   neck (front of the body), or a bite that leaves nothing -> SWALLOWED.
 ## The victim's level always drops to match its remaining length.
-## Otherwise: equal heads BOUNCE; a head pressing into a higher-level body SLIDES
-## along it (no harm); lower-level bodies that could not be struck right now
-## (shielded) are passed through.
-##   * Invulnerable snakes neither strike nor get struck. Only the player can
-##     strike the boss. Each snake is struck at most once per frame, in slot order.
+## Otherwise: equal heads BOUNCE; every other body or head the head runs into is a
+## WALL it SLIDES along (no harm) - including a lower-level snake it cannot strike
+## right now (strike cooldown, touched with the side/back of the head).
+##   * Shielded (invulnerable) snakes neither strike nor get struck, and are
+##     passed through. Only the player can strike the boss.
+##   * The boss outside the showdown ignores snakes below its notice level
+##     (BossController.will_strike): its head passes through them.
+##   * Each snake is struck at most once per frame, in slot order.
 
 signal bounced(a: SnakeActor, b: SnakeActor, at: Vector2)
 ## A strike that WOULD have landed but the target was shielded (so the UI can say
@@ -51,9 +54,17 @@ func resolve(world: WorldContext) -> CombatResult:
 		if touch["head_on"] and is_even(attacker, other):
 			_bounce(attacker, other)
 			bounced.emit(attacker, other, attacker.head_position().lerp(touch["pos"], 0.5))
-		elif other.stats.level >= attacker.stats.level:  # equal/higher bodies are walls
+		elif _is_wall_for(attacker, other):
 			_slide(attacker, touch["pos"], touch["reach"])
 	return result
+
+
+## True when `other` stops `attacker`'s head (it slides along instead).
+## Everything is solid except what the boss deliberately ignores.
+func _is_wall_for(attacker: SnakeActor, other: SnakeActor) -> bool:
+	if other.stats.level >= attacker.stats.level:
+		return true
+	return not attacker.is_boss  # the tyrant ploughs through snakes it ignores
 
 
 ## True when `striker` may strike `victim` right now (ignores geometry).

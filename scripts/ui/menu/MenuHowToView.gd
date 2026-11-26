@@ -2,13 +2,15 @@ class_name MenuHowToView
 extends MenuView
 ## Controls and the core rules, in as few words as possible.
 
+## Mirrors CombatSystem / CombatRules; keep in sync when the rules change.
 const RULES: PackedStringArray = [
 	"Eat orbs to grow. Bigger is stronger, but slower to turn.",
-	"Your head never hurts you: bodies are walls you slide along.",
-	"A bigger mouth cuts you where it strikes. Red-ringed heads can cut you.",
-	"Strike smaller snakes near the neck to swallow them whole.",
+	"Only the FRONT of a higher-level head strikes. Red tag + ring = it can cut you.",
+	"Your own head never hurts you: what you can't strike is a wall. Equal levels bounce.",
+	"Strike a smaller snake's body to cut it, or its neck to swallow it whole.",
+	"Shield bubble (after spawning or being hit): it can't strike or be struck.",
 	"Stay inside the safe zone: it shrinks, and outside it you burn away.",
-	"At 0:00: SHOWDOWN. Cut the Tyrant's gold tail to shrink it, then finish it.",
+	"The Tyrant ignores small snakes until 0:00. Then SHOWDOWN: cut its gold tail, finish it.",
 ]
 
 var _back: Button

@@ -101,9 +101,13 @@ func _body_trails_upward(actor: SnakeActor) -> bool:
 	return d.y < 0.0 and -d.y > absf(d.x) * 0.5
 
 
+## Mirrors CombatSystem.can_strike (minus cooldowns): red tag + ring only when
+## this head would really hurt the player on contact.
 func _can_cut_player(actor: SnakeActor, player: SnakeActor) -> bool:
 	if not player.is_alive:
 		return false
+	if actor.is_boss and not (actor.brain as BossController).will_strike(player):
+		return false  # the calm tyrant ignores the player for now
 	var even: float = _session.balance.combat.even_match_ratio
 	return float(actor.stats.level) > float(player.stats.level) * (1.0 + even)
 

@@ -8,9 +8,11 @@ extends Resource
 ##   * strike on a HEAD -> bite sized by the level gap
 ##   * strike on the NECK (front part of the body) -> swallowed whole
 ##   * the struck snake's level drops to match its remaining length
-##   Your own head never hurts you: higher-level bodies are walls you slide along,
-##   equal-level heads bounce. A struck/respawned snake shows a shield bubble
-##   while it is protected; that is the ONLY time a touch does nothing.
+##   Your own head never hurts you: anything it cannot strike right now is a wall
+##   you slide along (higher/equal levels, strike cooldown, side/back of the head),
+##   equal-level heads bounce. Touches pass through only in two cases:
+##   a shielded snake (bubble: spawn / just struck / just bounced), and the calm
+##   pre-showdown boss ignoring snakes below its notice level (BossDefinition).
 
 @export_group("Hit shapes")
 ## Striking circle = drawn head radius * mouth_scale.

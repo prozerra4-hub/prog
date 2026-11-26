@@ -5,6 +5,8 @@ extends PanelContainer
 var _level: Label
 var _state: Label
 var _defeated: bool = false
+var _noticed: bool = false
+var _just_noticed: bool = false
 
 
 func build(boss_name: String) -> void:
@@ -25,20 +27,41 @@ func build(boss_name: String) -> void:
 	add_child(row)
 
 
+## Updates level + hint. The hint states exactly what contact does right now:
+##   player out-levels it  -> STRIKE IT ANYWHERE!            (gold)
+##   showdown              -> DODGE THE JAWS, CUT ITS GOLD TAIL (red)
+##   calm, player >= notice level -> AVOID ITS JAWS          (red)
+##   calm, player below    -> IGNORES YOU UNTIL LvN          (dim)
 func refresh(boss: SnakeActor, player: SnakeActor, even_ratio: float, showdown: bool) -> void:
 	if _defeated or boss == null or not boss.is_alive or player == null:
 		return
 	_level.text = UiFormat.level(boss.stats.level)
+	var brain := boss.brain as BossController
 	var can_strike: bool = float(player.stats.level) > float(boss.stats.level) * (1.0 + even_ratio)
+	var noticed: bool = brain.will_strike(player)
 	var hint: String
+	var color: Color
 	if can_strike:
 		hint = "STRIKE IT ANYWHERE!"
+		color = UiTheme.GOLD
 	elif showdown:
 		hint = "DODGE THE JAWS, CUT ITS GOLD TAIL"
-	else:
+		color = UiTheme.DANGER
+	elif noticed:
 		hint = "AVOID ITS JAWS"
+		color = UiTheme.DANGER
+	else:
+		hint = "IGNORES YOU UNTIL %s" % UiFormat.level(brain.notice_level())
+		color = UiTheme.TEXT_DIM
 	_state.text = hint
-	_state.add_theme_color_override(&"font_color", UiTheme.GOLD if can_strike else (UiTheme.DANGER if showdown else UiTheme.TEXT_DIM))
+	_state.add_theme_color_override(&"font_color", color)
+	_just_noticed = noticed and not _noticed and not showdown and player.is_alive
+	_noticed = noticed
+
+
+## True on the frame the calm boss starts treating the player as prey.
+func just_noticed() -> bool:
+	return _just_noticed
 
 
 ## Freezes the card in its DEFEATED state.
